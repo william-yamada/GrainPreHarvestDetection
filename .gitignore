@@ -5,6 +5,9 @@ __pycache__/
 
 data/*
 
+*.safetensors
+src/lightning_logs/
+
 # C extensions
 *.so
 
