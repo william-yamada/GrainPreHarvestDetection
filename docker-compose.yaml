@@ -1,0 +1,20 @@
+version: '3.8'
+
+#enable the GPU
+
+services:
+  ultralytics:
+    image: ultralytics/ultralytics:latest
+    container_name: ultralytics
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./src:/usr/src/ultralytics/src
+      - ./data:/usr/src/ultralytics/data
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
